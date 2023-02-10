@@ -1,0 +1,58 @@
+package com.mysite.sbb2;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class Sbb2ApplicationTests {
+	@Autowired
+	UserRepository userrepository;
+	
+	
+	@Test
+	public void update() {
+		
+	}
+	
+	
+	
+	@Test
+	//값을 조회 
+	public void testuser() {
+		List<Users> all =
+				this.userrepository.findAllByOrderByCreateDateDesc();
+		
+		System.out.println("내림차순 정렬");
+		for(int i = 0; i < all.size(); i++) {
+			Users u = all.get(i);
+			
+			System.out.println(u.getIdx());
+			System.out.println(u.getName());
+			System.out.println(u.getPass());
+			System.out.println(u.getEmail());
+			System.out.println("==날짜기준 정렬==");
+		}
+				
+	}
+	
+	
+	//값 넣기 
+	/*@Test
+	void contextLoads() {
+		Users u1 = new Users();
+		
+		u1.setName("송강");
+		u1.setPass("1234");
+		u1.setEmail("pratt33@네이버");
+		u1.setCreateDate(LocalDateTime.now());
+		
+		this.userrepository.save(u1);
+		
+		
+	}
+	 */
+}

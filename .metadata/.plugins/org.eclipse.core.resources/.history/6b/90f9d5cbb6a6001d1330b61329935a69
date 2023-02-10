@@ -1,0 +1,10 @@
+package com.mysite.sbb;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface QuestionRepository extends JpaRepository<Question, Integer> {
+	//JPA에서 Question테이블을 select, Insert,update,delete
+	//Question테이블을 SQL 쿼리를 사영하지 않고 JPA 메소드를 사용해서 CRUD하는 Repository 
+	
+	
+}

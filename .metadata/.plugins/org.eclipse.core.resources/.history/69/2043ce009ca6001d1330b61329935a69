@@ -1,0 +1,14 @@
+package com.mysite.sbb;
+
+import java.time.LocalDateTime;
+
+public class Answer {
+	
+	private Integer id; 
+	
+	private String content;
+	
+	private LocalDateTime createDate;
+	
+	private Question question; //질문 테이블을 참조 , (질문테이블 : 부모테이블) 
+}

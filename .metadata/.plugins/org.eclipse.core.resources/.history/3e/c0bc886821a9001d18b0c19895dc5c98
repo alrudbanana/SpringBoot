@@ -1,0 +1,34 @@
+package com.mysite.sbb2.users;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.mysite.sbb2.DataNotFoundException;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class UsersService {
+
+	
+	private final UserRepository userRepository;
+	
+	public List<Users> getList(){
+		return this.userRepository.findAll();
+	}
+	
+	//상세 페이지 처리 메소드
+	public Users getUsers(Integer idx) {
+		Optional<Users> users = this.userRepository.findByidx(idx);
+		
+		if(users.isPresent()) {
+			return users.get();
+		}else {
+			throw new DataNotFoundException("요청을 찾지 못하겠네요");
+		}
+	}
+	
+}

@@ -1,0 +1,18 @@
+package com.mysite.sbb.answer;
+
+import org.springframework.stereotype.Controller;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Controller
+public class AnswerControl {
+
+	private final AnswerRepository answerRepository;
+	
+	//http:/localhost:9292/answer/create/1 요청에 대한 답변글 등록 처리 
+	public String createAnswer(Model model) {
+		
+	}
+	
+}

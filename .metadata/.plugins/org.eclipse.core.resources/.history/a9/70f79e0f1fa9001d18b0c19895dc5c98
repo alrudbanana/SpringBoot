@@ -1,0 +1,23 @@
+package com.mysite.sbb2.users;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class UsersService {
+
+	
+	private final UserRepository userRepository;
+	
+	public List<Users> getList(){
+		return this.userRepository.findAll();
+	}
+	
+	//상세 페이지 처리 메소드
+	public 
+	
+}

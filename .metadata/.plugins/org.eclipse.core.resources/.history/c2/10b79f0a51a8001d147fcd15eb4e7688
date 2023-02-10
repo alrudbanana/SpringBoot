@@ -1,0 +1,18 @@
+package com.mysite.sbb2.users;
+
+import org.springframework.stereotype.Controller;
+
+import com.mysite.sbb.question.QuestionRepository;
+
+import groovy.transform.AutoClone;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@RequiredArgsConstructor
+@Controller
+public class UsersController {
+
+	
+	private final UserRepository userrepository;
+}

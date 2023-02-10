@@ -1,0 +1,12 @@
+package com.mysite.sbb;
+
+public class Question {
+	private Integer id;
+	
+	private String subject; 
+	
+	private String content;
+	
+	private LocalDateTime createDate;
+	
+}

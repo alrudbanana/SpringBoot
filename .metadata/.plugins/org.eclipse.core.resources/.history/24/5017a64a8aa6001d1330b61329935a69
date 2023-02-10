@@ -1,0 +1,9 @@
+#각종 설정을 셋팅하는 파일 
+#JDBC셋팅, Mybatis Mapper 
+#주서기 nestat -na | more
+
+server.port=9292
+
+#DevTools활성화 
+spring.devtools.livereload.enabled=true
+spring.freemarker.cache=false

@@ -1,0 +1,30 @@
+package com.mysite.sbb;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor	//기본생성자 
+@AllArgsConstructor // 
+
+public class HelloLomBok3 {
+	
+	private String hello; 	//필드 : 메인 메소드 x 
+	private int lombok;	
+	
+	//@NoArgsConstructor:  기본생성자 사용시 생성자의형태 
+	// public HelloLombok3() {} 
+	
+	//all
+	
+	public static void main(String[] args) {
+		//값 출력 확인 
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.mysite.sbb2;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.mysite.sbb.Question;
+
+
+public interface UserRepository extends JpaRepository<Users, Integer> {
+	
+	//이름을 기준으로 찾기 
+	Users findByname(String name);
+	
+	//아이디 번호 값 찾기
+	Users findByidx(int idx);
+	
+	//데이터 값을 정렬 (DESC)
+	List<Users> findBynameLikeOrderByCreateDateAsc(String idx);
+	List<Users> findBynameLikeOrderByCreateDateDesc(String idx);
+	
+	//모든 레코드를 정렬해서 출력 
+	List <Users> findAllByOrderByCreateDateAsc();
+}

@@ -1,0 +1,14 @@
+package com.mysite.sbb2;
+
+public class FinalUser {
+	
+	
+	private int idx;
+	private String name;
+	
+	
+	public static void main(String[] args) {
+		FinalUser user = new FinalUser();
+	}
+
+}
