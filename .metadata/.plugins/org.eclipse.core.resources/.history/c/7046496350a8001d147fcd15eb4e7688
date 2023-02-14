@@ -1,7 +1,0 @@
-package com.mysite.sbb2.users;
-
-
-@controller
-public class UsersController {
-
-}

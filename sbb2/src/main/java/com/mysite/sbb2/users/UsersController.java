@@ -2,15 +2,21 @@ package com.mysite.sbb2.users;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-
+//@RequestMapping("/users")
 @RequiredArgsConstructor
 @Controller
 public class UsersController {
@@ -19,27 +25,47 @@ public class UsersController {
 	//private final UserRepository userrepository;
 	
 	@GetMapping("/users/list")
-	@PostMapping("/users/list")
-	
-	public String list(Model model) {
-		List<Users> userslist = 
-				this.usersService.getList();
+	public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
 		
-	model.addAttribute("userslist", userslist);
+	
+		
+		Page<Users> paging = 
+				this.usersService.getList(page); 
+		
+		System.out.println("page 변수 출력 : " + page);
+		
+		model.addAttribute("paging", paging);
 			
-			return "users_list";
-				
+				return "users_list";
+					
 	}
 	
+	
+	//회원가입 input 
+	@GetMapping("/users/create")
+	public String usersCreate(UsersForm usersForm) {
+		return "users_input";
+	}
+	
+	@PostMapping("/users/create")
+	public String usersCreate( 
+			//@RequestParam String subject,@RequestParam String content) {
+			@Valid UsersForm usersForm, BindingResult bindingResult) {
+		
+			if(bindingResult.hasErrors()) {	// subject, content가 비었을 때
+				return "users_input";
+			}
 	//상세 페이지를 처리하는 메소드 : /users/detail/idx(변수값)
-	@GetMapping("/users/list/{idx}")
-	public String detail(Model model, @PathVariable("idx") Integer idx) {
-		Users u =
-				this.usersService.getUsers(idx);
-		
-		model.addAttribute("users",u);
-		return "users_detail";
-		
+//	@GetMapping("/users/list/{idx}")
+//	public String detail(Model model, @PathVariable("idx") Integer idx) {
+//		Users u =
+//				this.usersService.getUsers(idx);
+//		
+//		model.addAttribute("users",u);
+//		return "users_detail";
+//		
+//	}
+		this.usersService.create(usersForm.getName(), usersForm.getPass(), usersForm.getEmail());
+		return "redirect:/users/list";
 	}
-	
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type = "text/css" th:href="@{/bootstrap.min.css}">
+</head>
+
+
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+
+
+	<table class="table">
+		<thead class = "table-dark">
+		<tr>
+			<td>가입번호</td>
+			<td>이름</td>
+			<td>비밀번호</td>
+			<td>이메일</td>
+			<td>가입날짜</td>
+			<td>로그인횟수</td>
+		</tr>
+		</thead>
+		
+	<tbody>
+	<!-- 
+		<tr th:each ="users: ${userslist}">
+		
+			<td>
+			<a th:href="@{|/users/list/${users.idx}|}" 
+			th:text="${users.name"></a>
+			</td>
+			<td th:text="${users.name}"></td>
+			<td th:text="${users.pass}"></td>
+			<td th:text="${users.email}"></td>
+			<td th:text="${users.createDate}"></td>
+			<td th:text="${users.cnt}"></td>
+		</tr>
+	-->
+	
+		<tr th:each="users, loop : ${paging}">
+			<td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index)">
+			</td>
+			<td>
+			<a th:href="@{|/users/detail/${users.idx}|}" th:text="${users.name}"></a>
+			 </td>
+			 <td th:text="${users.email}"></td>
+			 <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+			<td th:text="${users.cnt}"></td>
+		</tr>	 
+	</tbody>
+	</table>
+	
+
+</div>
+</html>

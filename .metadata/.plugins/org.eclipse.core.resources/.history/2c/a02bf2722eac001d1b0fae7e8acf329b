@@ -1,0 +1,57 @@
+<!-- html만 남기고 기본생성 태그 다 삭제 -->
+<html layout:decorate="~{layout}">
+
+<div layout:fragment="content" class="container my-3">
+	<table class="table">
+		<thead class="table-dark"> <!-- 제목을 처리하는 블락 -->
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성일시</th>
+			</tr>
+		</thead>
+
+		<tbody> <!-- 테이블의 내용을 출력하는 블락 -->
+
+			<!-- 타임리프(Thymeleaf)를 사용해서 루프 돌려서 출력 1번 -->
+			<!-- th: 타임리프 문법 -->
+			<!--  
+		<tr th:each="question : ${questionList}">
+			<td>
+				<a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+			</td>
+			<td th:text="${question.createDate}"></td>
+		</tr>
+		-->
+
+			<!-- 2번(출력되는건 1번과 동일하다) -->
+			<!-- b. Thymeleaf에서 링크를 처리 : @{ } -->
+			<!-- | String + 변수 | : 문자열과 변수를 연결 -->
+
+			<tr th:each="question, loop : ${paging}">
+				<td th:text="${loop.count}"> 번호 </td>
+				<td> <a th:href="@{|/question/detail/${question.id}|}"> [[${question.subject}]] </a></td>
+				<td> [[${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}]] </td>
+			</tr>
+
+		</tbody>
+	</table>
+	
+	<!-- 페이징 처리 시작 -->
+	<div th:if="${!paging.isEmpty()}">
+		<ul class="pagination justify-content-center"> <!-- 페이징 처리하는 메소드 -->
+			<li class="page-item" th:classappend="${!paging.hasPrevious}? 'disabled'">
+			<!-- 이전 페이지가 존재하지 않으면 이전에 링크를 비활성화 -->
+			<a class="page-link" th:href="@{|?page=${pagint.number-1}|}" >이전</a>
+			</li>
+			
+			<!-- 첫 페이지 부터 마지막 페이지까지 루프를 돌려서 출력 -->
+			<li></li>
+			<li>다음</li>
+		</ul>
+	
+	</div>
+</div>
+
+
+</html>

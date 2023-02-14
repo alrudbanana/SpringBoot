@@ -1,5 +1,0 @@
-server.port=9294
-
-#DevTools활성화 
-spring.devtools.livereload.enabled=true
-spring.freemarker.cache=false

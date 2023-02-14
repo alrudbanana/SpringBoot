@@ -1,0 +1,29 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+	<table>
+		<tr>
+			<td>가입번호</td>
+			<td>이름</td>
+			<td>비밀번호</td>
+			<td>이메일</td>
+			<td>가입날짜</td>
+			<td>로그인횟수</td>
+			
+		</tr>
+		<tr th:each ="users: ${userslist}">
+		
+			<td>
+			<a th:href="@{|/users/list/${users.idx}|}" 
+			th:text="${users.name"></a>
+			</td>
+			<td th:text="${users.name}"></td>
+			<td th:text="${users.pass}"></td>
+			<td th:text="${users.email}"></td>
+			<td th:text="${users.createDate}"></td>
+			<td th:text="${users.cnt}"></td>
+		</tr>
+	</table>
+	
+
+</div>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <!-- 메타태그 2개 삽입 -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+   <title>템플릿 html (view 페이지 생성시 기본적용)</title>
+   <!-- 부트스트랩 css -->
+   <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+</head>
+
+<body>
+
+   <!-- 기본 템플릿에 삽입될 내용 Start 옵션 -->
+   <th:blobk layout:fragment="content"></th:blobk> 👈끼워넣을 페이지
+   <!-- 기본 템플릿에 삽입될 내용 end -->
+
+</body>
+
+</html>
