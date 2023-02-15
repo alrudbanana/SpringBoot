@@ -1,0 +1,15 @@
+package com.mysite.sbb.users;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class UserController {
+
+	private UserService userService;
+	
+	@GetMapping("/signup")
+	public String signup(UserCreateForm userCreateForm)
+}

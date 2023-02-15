@@ -1,0 +1,10 @@
+package com.mysite.sbb.users;
+
+public class SiteUser {
+
+	private Long Id; 
+	
+	private String username; 
+	
+	private String email;
+}

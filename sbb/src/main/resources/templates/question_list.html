@@ -6,8 +6,6 @@
 <link rel="stylesheet" type = "text/css" th:href="@{/bootstrap.min.css}">
 
 </head>
-
-	<h1> 질문테이블의 리스트를 출력하는 view 페이지 입니다.</h1>
 	<hr>
 	
 <html layout:decorate="~{layout}">
@@ -42,10 +40,20 @@
 	
 	<tr th:each="question, loop : ${paging}"> <!-- 2월 14일 페이징 처리 수정 -->
 		<td th:text="${loop.count}"> 번호 </td>
-		<td> <a th:href="@{|/question/detail/${question.id}|}">[[${question.subject}]] </a></td>
+		<td> <a th:href="@{|/question/detail/${question.id}|}">[[${question.subject}]] </a>
+			<!-- 답변의 갯수 표시  -->
+				<span class="text-danger small ms-2"
+				th:if="${#lists.size(question.answerList)>0}"
+				th:text="${#lists.size(question.answerList)}"
+				>
+				</span>
+		</td>
+			
 			
 		<td> [[ ${#temporals.format(question.createDate, 'yyyy-mm-dd HH:mm')}]] </td>	
 	</tr>
+		
+		
 		
 		</tbody>
 	</table>
@@ -64,6 +72,7 @@
 			<!-- 첫페이지 부터 마지막 페이지까지 루프를 돌려서 출력 -->
 			<li th:each="page : ${#numbers.sequence(0,paging.totalPages-1)}"
 				th:classappend="${page==paging.number} ? 'active'" class="page-item"
+				th:if="${page >= paging.number-5 and page <= paging.number+5}"
 			>
 				<!-- each로 계속 반복해서 돌아감 -->
 				<a th:text=${page} class="page-link" th:href="@{|?page=${page}|}">

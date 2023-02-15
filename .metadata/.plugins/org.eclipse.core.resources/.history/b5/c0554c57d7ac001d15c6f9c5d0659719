@@ -1,0 +1,14 @@
+package com.mysite.sbb.users;
+
+import jakarta.persistence.Column;
+
+public class SiteUser {
+
+	private Long Id; 
+	
+	private String username; 
+	
+	
+	@Column(unique = true)
+	private String email;
+}
