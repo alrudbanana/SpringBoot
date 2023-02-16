@@ -1,0 +1,12 @@
+package com.mysite.sbb.users;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<SiteUser, Long> {
+
+	
+	//findbyuser 메소드 추가 
+	Optional<SiteUser> findByusername(String username);
+}

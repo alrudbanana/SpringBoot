@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=sbb/C:\/Users\/hi\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.data\/spring-data-jpa\/3.0.1\/96f4ea7c780b6c902f83f4fd3c98dffe3ac5fbec\/spring-data-jpa-3.0.1.jar=/gradle_used_by_scope=/main,test=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1675736503891"/>
+    <typeInfo handle="=sbb/C:\/Users\/hi\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.security\/spring-security-core\/6.0.1\/7d54b69c31cee7ff8d68dfb852cd904ed65af3cd\/spring-security-core-6.0.1.jar=/gradle_used_by_scope=/main,test=/&lt;org.springframework.security.core.userdetails(UserDetailsService.class[UserDetailsService" modifiers="1537" timestamp="1676425395547"/>
+    <typeInfo handle="=sbb/C:\/Users\/hi\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.security\/spring-security-core\/6.0.1\/7d54b69c31cee7ff8d68dfb852cd904ed65af3cd\/spring-security-core-6.0.1.jar=/gradle_used_by_scope=/main,test=/&lt;org.springframework.security.provisioning(UserDetailsManager.class[UserDetailsManager" modifiers="1537" timestamp="1676425395547"/>
 </typeInfoHistroy>

@@ -4,6 +4,7 @@ import java.time.LocalDateTime; //자신의 시스템의 있는 곳의 시간 �
 import java.util.List;
 
 import com.mysite.sbb.answer.Answer;
+import com.mysite.sbb.users.SiteUser;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +13,7 @@ import jakarta.persistence.Entity; //엔티티 어노테이션. JPA에서 적용
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,9 +37,15 @@ public class Question {
 	private LocalDateTime createDate; //실제 DB에선 create_Date로 생성 : 
 	
 	private String addr ;
-	
+	private LocalDateTime modifyDate;
 	//Question테이블에서 Answer 테이블을 참조하는 컬럼을생성 @OnetoMany
 		@OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
 		private List<Answer> answerList;
+		
+	//글쓴이 추가 	
+	@ManyToOne
+	private SiteUser author;
+
+
 	
 }

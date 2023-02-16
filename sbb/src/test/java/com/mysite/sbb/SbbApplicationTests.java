@@ -14,6 +14,7 @@ import com.mysite.sbb.answer.Answer;
 import com.mysite.sbb.answer.AnswerRepository;
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionRepository;
+import com.mysite.sbb.users.UserRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -25,6 +26,7 @@ class SbbApplicationTests {
 	
 	@Autowired //객체 자동주입 
 	private AnswerRepository answerRepository;
+
 	
 	/*question 테이블에 for문을 사용해서 더미 값 1000개insert*/
 	@Test
@@ -59,6 +61,7 @@ class SbbApplicationTests {
 		this.answerRepository.save(a);
 	}
 	
+
 //	/*하나의 질문에 여라개의 답변 찾기*/
 //	@Transactional //아래의 메소드가 하나의 트랜잭션으로 작동되도록 설정
 //	@Test
